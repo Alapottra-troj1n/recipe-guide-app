@@ -4,7 +4,19 @@ const searchBtn = document.querySelector('.search-btn');
 
 searchBtn.addEventListener('click', ()=>{
     const searchValue = document.querySelector('#search-field').value;
-    getSearchData(searchValue);
+
+    document.querySelector('#search-field').value = '';
+
+    if(searchValue.length > 0){
+      getSearchData(searchValue);
+      document.querySelector('.error-input').style.display = 'none';
+    }else{
+      document.querySelector('.error-input').style.display = 'block';
+      const foodContainer = document.querySelector('.food-container');
+      foodContainer.textContent = '';
+    }
+
+    
    
     
 
