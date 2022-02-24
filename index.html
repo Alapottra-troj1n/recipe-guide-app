@@ -17,33 +17,60 @@
       }
       .__center {
         background-color: rgb(54, 54, 54);
-        color:white ;
+        color: white;
         max-height: 60vh !important ;
-        overflow-y: scroll  !important;
+        overflow-y: scroll !important;
         overflow-x: hidden;
         position: fixed;
-     top: 50%;
-     left: 50%;
-  /* bring your own prefixes */
-     transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
       }
-      .error-input{
+      .error-input {
         display: none;
       }
-      #spinner{
+      #spinner {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        }
+      }
+
+      button.btn-close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+      }
+      .meal-photo {
+        object-fit: cover;
+      }
+      p.ingredients span,
+      p.category span {
+        font-size: 14px;
+        margin: 2px;
+        background: #efefef;
+        padding: 2px 10px;
+        display: inline-block;
+      }
+      p.area {
+        margin-bottom: 2px;
+      }
+      p.area span {
+        font-size: 14px;
+        margin: 2px;
+        background: #32b361;
+        padding: 2px 10px;
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
     <div id="spinner">
-      <div class="spinner-border text-primary " role="status">
-          <span class="visually-hidden"></span>
-        </div>
-  </div>
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>
     <h1 class="text-center mt-5">Cooking Guide For Everyone</h1>
 
     <section class="container">
@@ -64,27 +91,32 @@
           Search
         </button>
       </div>
-      <div> <p class="fs-6 text-center text-secondary">#chicken #pasta #fish #curry #salad</p> </div>
-      <div class="error-input"> <p class="fs-2 text-center text-danger">Invaild Input</p> </div>
-
-      <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 food-container">
-      
-
+      <div>
+        <p class="fs-6 text-center text-secondary">
+          #chicken #pasta #fish #curry #salad
+        </p>
+      </div>
+      <div class="error-input">
+        <p class="fs-2 text-center text-danger">Invaild Input</p>
       </div>
 
-      <div class="modal fade" id="meal-details" tabindex="-1" aria-labelledby="meal-details" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="card border-0" id="modal-dialog-box">
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 food-container"></div>
 
-                </div>
-            </div>
-
+      <div
+        class="modal fade"
+        id="meal-details"
+        tabindex="-1"
+        aria-labelledby="meal-details"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+        >
+          <div class="modal-content">
+            <div class="card border-0" id="modal-dialog-box"></div>
+          </div>
         </div>
-    </div>
-    
-
-     
+      </div>
 
       <!-- <div
         class="toast __center" id="single-recipe"
@@ -95,8 +127,6 @@
 
 
       </div> -->
-
-
     </section>
 
     <script
