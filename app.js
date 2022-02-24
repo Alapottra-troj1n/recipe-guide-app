@@ -54,12 +54,14 @@ const displaySearchData = (data) =>{
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML =`
-        <div class="card h-100 pointer" onclick='getDetails(${foodId})'>
+        <div class="card h-100 pointer">
         <img src="${food.strMealThumb}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${food.strMeal}</h5>
           <p class="card-text">${food.strInstructions.slice(0,120)}...</p>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#meal-details" onclick="getDetails(${foodId})">More Details</button>
         </div>
+     
       </div>
         `;
         foodContainer.appendChild(div);
@@ -83,15 +85,45 @@ const getDetails = foodId =>{
 
 };
 
+
+
 const showDetails = data =>{
     console.log(data);
-    const toast = document.querySelector('#single-recipe');
-    toast.textContent = '';
-    const toastBody = document.createElement('div');
-    toastBody.classList.add('toast-body');
-    toastBody.innerHTML = `
+    const modal = document.querySelector('#modal-dialog-box');
+   
+    const modalBody = document.createElement('div');
+    modalBody.classList.add("row", "g-0");
+    modalBody.innerHTML = `
+
+       <div class="col-md-4" style="background-image:url(');background-repeat: no-repeat; background-position: center center; background-size: cover;">
+          <div style="height:300px"></div>
+      </div>
+      <div class="col-md-8">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="card-body text-start">
+              <h3 class="card-title"></h3>
+              <p class="area">Type: <span>}</span></p>
+              <p class="category">Category: <span></span></p>
+              <p class="card-text">...</p>
+              <p class="ingredients">Ingredients: <span>
+               
+              </span><span></span><span>
+</span><span></span><span></span><span></span></p>
+          </div>
+      </div>
     
-    <div><img src="${data.strMealThumb}" class="w-50" alt=""></div>
+    
+    `
+    modal.textContent = '';
+    modal.appendChild(modalBody);
+    
+}
+
+
+// this is the toast
+
+
+{/* <div><img src="${data.strMealThumb}" class="w-50" alt=""></div>
     <h2 class="single-title">${data.strMeal}</h2>
     <div><p class="single-details">${data.strInstructions}</p></div>
      <div class="mt-2 pt-2 border-top">
@@ -104,12 +136,5 @@ const showDetails = data =>{
          data-bs-dismiss="toast">
          Close
        </button>
-     </div>
-    
-    `
-    toast.appendChild(toastBody);
-
-    toast.classList.add('show');
-    
-}
+     </div> */}
 
