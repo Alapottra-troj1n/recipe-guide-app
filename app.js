@@ -1,5 +1,19 @@
 const searchBtn = document.querySelector('.search-btn');
 
+const loader = document.querySelector('#spinner');
+loader.style.display = 'none';
+const foodContainer = document.querySelector('.food-container');
+
+function loading() {
+  loader.hidden = false;
+  foodContainer.hidden = true;
+}
+function complete() {
+  if(!loader.hidden){
+      foodContainer.hidden = false;
+      loader.hidden = true;
+  }
+}
 
 
 searchBtn.addEventListener('click', ()=>{
@@ -9,6 +23,8 @@ searchBtn.addEventListener('click', ()=>{
 
     if(searchValue.length > 0){
       getSearchData(searchValue);
+      loader.style.display = 'block';
+      loading()
       document.querySelector('.error-input').style.display = 'none';
     }else{
       document.querySelector('.error-input').style.display = 'block';
@@ -47,6 +63,8 @@ const displaySearchData = (data) =>{
       </div>
         `;
         foodContainer.appendChild(div);
+        complete()
+        loader.style.display = 'none';
 
 
     }

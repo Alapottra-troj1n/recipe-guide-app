@@ -30,9 +30,20 @@
       .error-input{
         display: none;
       }
+      #spinner{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
     </style>
   </head>
   <body>
+    <div id="spinner">
+      <div class="spinner-border text-primary " role="status">
+          <span class="visually-hidden"></span>
+        </div>
+  </div>
     <h1 class="text-center mt-5">Cooking Guide For Everyone</h1>
 
     <section class="container">
@@ -57,7 +68,7 @@
       <div class="error-input"> <p class="fs-2 text-center text-danger">Invaild Input</p> </div>
 
       <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 food-container">
-
+      
 
       </div>
 
